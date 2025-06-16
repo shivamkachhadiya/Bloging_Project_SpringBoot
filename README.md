@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6457dce5-7e90-4d3b-b2ac-75db6f317438)# 📝 BloggingProject
+📝 BloggingProject
 
 A simple blogging platform built using **Spring Boot**, with **MySQL** as the backend database and **IntelliJ IDEA** as the development environment.
 
@@ -8,7 +8,7 @@ A simple blogging platform built using **Spring Boot**, with **MySQL** as the ba
 
 **2) New Page For Adding Ideas & Thoughts**
 
-**![image](https://github.com/user-attachments/assets/6a19447e-6d99-4c91-9857-0b11949685d9)
+![image](https://github.com/user-attachments/assets/6a19447e-6d99-4c91-9857-0b11949685d9)
 
 **3) Update Page For Updating Ideas In Future**
 ![image](https://github.com/user-attachments/assets/6f22f13b-a0d0-4260-8a99-844f4048b82e)
