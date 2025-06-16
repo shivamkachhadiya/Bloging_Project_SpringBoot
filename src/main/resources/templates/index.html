@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog Posts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') no-repeat center center fixed;
+            background-size: cover;
+            backdrop-filter: blur(3px);
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h5 {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .btn {
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .table thead {
+            font-size: 1rem;
+        }
+
+        .table td, .table th {
+            vertical-align: middle;
+            padding: 1rem;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f0f8ff;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #ddd;
+            border-top: 6px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+<div class="container py-5">
+
+    <!-- Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-dark">📝 Blog Post Manager</h1>
+        <p class="text-muted fs-5">Create, edit, or remove blog posts with ease</p>
+    </div>
+
+    <!-- New Post Button -->
+    <div class="d-flex justify-content-end mb-4">
+        <a href="/new" class="btn btn-success px-4 py-2 shadow-sm">
+            + New Post
+        </a>
+    </div>
+
+    <!-- Action Card -->
+    <div class="card glass-card border-0 p-4 mb-5">
+        <h5 class="mb-3 text-primary">🔧 Update or Delete a Post by ID</h5>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <input type="number" id="postIdInput" class="form-control form-control-lg" placeholder="Enter Post ID">
+            </div>
+            <div class="col-md-2 d-grid">
+                <button onclick="editPost()" class="btn btn-primary btn-lg">Edit Post</button>
+            </div>
+            <div class="col-md-2 d-grid">
+                <button onclick="deletePost()" class="btn btn-danger btn-lg">Delete Post</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Table -->
+    <div class="glass-card p-4 shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover bg-white rounded">
+                <thead class="table-dark">
+                <tr>
+                    <th>📌 Title</th>
+                    <th>✍️ Author</th>
+                    <th>📖 Content</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="post : ${listPosts}">
+                    <td th:text="${post.title}" class="text-start fw-semibold text-capitalize">Post Title</td>
+                    <td th:text="${post.author}" class="text-muted">Author</td>
+                    <td th:text="${post.content}" class="text-break text-start small">Content</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    function editPost() {
+        const id = document.getElementById("postIdInput").value;
+        if (id) {
+            window.location.href = "/edit/" + id;
+        } else {
+            alert("Please enter a valid Post ID.");
+        }
+    }
+
+    function deletePost() {
+        const id = document.getElementById("postIdInput").value;
+        if (id && confirm("Are you sure you want to delete post ID " + id + "?")) {
+            window.location.href = "/delete/" + id;
+        } else {
+            alert("Please enter a valid Post ID.");
+        }
+    }
+
+    // Preloader fade out
+    window.addEventListener("load", function () {
+        const preloader = document.getElementById("preloader");
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+            preloader.style.display = "none";
+        }, 500);
+    });
+</script>
+
+</body>
+</html>
