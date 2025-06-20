@@ -1,3 +1,12 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/shivamkachhadiya/Bloging_Project_SpringBoot)
+![Project Type](https://img.shields.io/badge/project-Blogging_App-green)
+![Tech Stack](https://img.shields.io/badge/built%20with-SpringBoot%20%7C%20Java%20%7C%20HTML-orange)
+![Top Language](https://img.shields.io/github/languages/top/shivamkachhadiya/Bloging_Project_SpringBoot)
+![Location](https://img.shields.io/badge/location-VIT_Vellore-9cf)
+![Goal](https://img.shields.io/badge/goal-Fintech_PBC-orange)
+![TimeZone](https://img.shields.io/badge/timezone-IST-blue)
+![Profile Views](https://komarev.com/ghpvc/?username=shivamkachhadiya)
+
 📝 BloggingProject
 
 A simple blogging platform built using **Spring Boot**, with **MySQL** as the backend database and **IntelliJ IDEA** as the development environment.
