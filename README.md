@@ -48,21 +48,23 @@ A simple blogging platform built using **Spring Boot**, with **MySQL** as the ba
 ---
 
 ## 📁 Project Structure
+```
 BloggingProject/
 ├── src/
-│ └── main/
-│ ├── java/
-│ │ └── com/
-│ │ └── blog/
-│ │ └── BlogingProject/
-│ │ ├── model/
-│ │ │ └── Post.java
-│ │ ├── repository/
-│ │ │ └── PostRepository.java
-│ │ └── BloggingProjectApplication.java
-│ └── resources/
-│ └── application.properties
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── blog/
+│       │           └── BlogingProject/
+│       │               ├── model/
+│       │               │   └── Post.java
+│       │               ├── repository/
+│       │               │   └── PostRepository.java
+│       │               └── BloggingProjectApplication.java
+│       └── resources/
+│           └── application.properties
 └── pom.xml
+```
 
 
 ---
